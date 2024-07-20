@@ -1,9 +1,17 @@
-<h1>Show The course details of <%=@course.id %></h1>
-
-<p><b>CourseName :</b><%= @course.name%></p>
-<p><b>CourseDescription :</b><%= @course.description%></p>
-<p><b>Courseprice :</b><%= @course.price%></p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back to index page', courses_path %> |
-<%= link_to 'Delete', course_path(@course), method: :delete,data: {confirm: "Are you sure ?"}%>
+<h1 class="text-center mt-4">show course <%=@course.id %> details</h1>
+<div class="container">
+    <div class="col-10">
+    <div class="card text-center mt-5">
+        <div class="card-header">
+            Featured
+        </div>
+        <div class="card-body">
+            <p class="card-title"><b>CourseName:</b><%=@course.name %></p>
+            <p class="card-text"><b>CourseDescription:</b><%= @course.description %></p>
+            <p class="card-text"><b>Courseprice:</b><%= @course.price %></p>
+            <%= link_to "edit",edit_course_path(@course),class:"btn btn-outline-success" %>
+            <%= link_to "delete",course_path(@course), method: :delete,class:"btn btn-outline-danger",data: {confirm: "Are you sure ?"}%>
+        </div>
+    </div>
+    </div>
+</div>
