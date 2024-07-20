@@ -1,0 +1,19 @@
+<h1>Enter new course </h1>
+
+<%= form_with scope: :course,url: courses_path,local:true do |f| %>
+    <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    </p>
+    <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+    </p>
+    <p>
+    <%= f.label :price %><br>
+    <%= f.number_field:price %>
+    </p>
+    <p>
+    <%= f.submit "Create Course" %>
+    </p>
+<% end %>
