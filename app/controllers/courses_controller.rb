@@ -6,12 +6,28 @@ class CoursesController < ApplicationController
         @course = Course.find(params[:id])
     end
     def new
-
+        @course = Course.new
+    end
+    def edit
+        @course = Course.find(params[:id])
     end
     def create
         @course = Course.new(params.require(:course).permit(:name, :description,:price))
-        @course.save
-        redirect_to course_path(@course)
+        if @course.save
+            flash[:notice] = "Course was created successfully."
+            redirect_to course_path(@course)
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
 
+    def update
+        @course = Course.find(params[:id])
+        if @course.update(params.require(:course).permit(:name, :description,:price))
+            flash[:notice] = "Course was updated successfully."
+               redirect_to course_path(@course)
+        else
+            render :edit, status: :unprocessable_entity
+        end
+    end
 end
