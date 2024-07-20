@@ -6,15 +6,23 @@
 <th>CourseName</th>
 <th>Description</th>
 <th>Price</th>
-<th>Options</th>
+<th colspan="3">Actions</th>
 </tr>
 </thead>
 <tbody>
 <% @courses.each do |course| %>
+    <tr>
     <td><%= course.name %></td>
     <td><%= course.description %></td>
     <td><%= course.price %></td>
-    <td>Updating...</td>
+    <td><%= link_to 'show',course_path(course) %></td>
+    <td><%= link_to 'edit',edit_course_path(course) %></td>
+    <td><%= link_to 'delete',course_path(course),method: :delete, data: {confirm: "Are you sure ?"} %></td>
+    </tr>
+    <% end %>
 </tbody>
-<% end %>
 </table>
+<br>
+<p>
+<%= link_to 'Add new course',new_course_path %>
+</p>

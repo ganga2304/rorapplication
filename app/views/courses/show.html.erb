@@ -3,3 +3,7 @@
 <p><b>CourseName :</b><%= @course.name%></p>
 <p><b>CourseDescription :</b><%= @course.description%></p>
 <p><b>Courseprice :</b><%= @course.price%></p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back to index page', courses_path %> |
+<%= link_to 'Delete', course_path(@course), method: :delete,data: {confirm: "Are you sure ?"}%>

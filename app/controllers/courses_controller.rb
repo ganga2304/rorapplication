@@ -30,4 +30,10 @@ class CoursesController < ApplicationController
             render :edit, status: :unprocessable_entity
         end
     end
+    def destroy
+        @course = Course.find(params[:id])
+        @course.destroy
+        flash[:notice] = "Course was deleted successfully."
+        redirect_to courses_path, status: :see_other
+    end
 end
