@@ -1,0 +1,20 @@
+<h1>Displaying all the courses</h1>
+
+<table>
+<thead>
+<tr>
+<th>CourseName</th>
+<th>Description</th>
+<th>Price</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<% @courses.each do |course| %>
+    <td><%= course.name %></td>
+    <td><%= course.description %></td>
+    <td><%= course.price %></td>
+    <td>Updating...</td>
+</tbody>
+<% end %>
+</table>
