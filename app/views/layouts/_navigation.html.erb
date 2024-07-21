@@ -13,21 +13,21 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <%= link_to "Home",root_path,class:"nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "courses", courses_path, class: "nav-link" %>
+           <li class="nav-item">
+            <%= link_to "Log in", login_path, class: "nav-link" %>
           </li>
            <li class="nav-item">
-            <%= link_to "users", users_path, class: "nav-link" %>
+            <%= link_to "LogOut", logout_path, class: "nav-link",method: :delete %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Create new
+              Details
             </a>
             <ul class="dropdown-menu">
-              <%= link_to "Create new Course",new_course_path, class:"dropdown-item"%>
+              <%= link_to "users", users_path, class:"dropdown-item"%>
+              <%= link_to "courses", courses_path, class:"dropdown-item"%>
               <%= link_to "Create new user",signup_path, class:"dropdown-item"%>
-
+              <%= link_to "Create new course",new_course_path, class:"dropdown-item"%>
             </ul>
           </li>
         </ul>
