@@ -13,10 +13,10 @@
         </div>
         <div class="mb-3">
           <%= f.label :password,class:"col-2 form-label" %>
-          <%= f.password_field:password,class:"form-control shadow rounded",placeholder: "Enter price of course" %>
+          <%= f.password_field:password,class:"form-control shadow rounded",placeholder: "Enter the password" %>
         </div>
         <div class="mb-3 d-flex justify-content-center">
-          <%= f.submit "Sign up",class:"btn btn-outline-primary" %>
+          <%= f.submit(@user.new_record? ? "Sign up" : "update account",class:"btn btn-outline-primary")%>
         </div>
       <% end %>
     </div>
