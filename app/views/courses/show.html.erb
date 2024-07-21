@@ -3,7 +3,9 @@
     <div class="col-10">
     <div class="card text-center mt-5">
         <div class="card-header">
-            Featured
+         <% @course.lessons.each do |lesson| %>
+            <%= lesson.title%><br>
+        <% end %>
         </div>
         <div class="card-body">
             <p class="card-title"><b>CourseName:</b><%=@course.name %></p>
