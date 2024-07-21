@@ -12,8 +12,10 @@
             <p class="card-text"><b>About:</b><%= course.description %></p>
             <p class="card-text"><b>Cost:</b><%= course.price %></p>
             <%= link_to "view",course_path(course), class:"btn btn-outline-info" %>
+            <% if logged_in? && course.user == current_user %>
             <%= link_to "edit",edit_course_path(course),class:"btn btn-outline-success" %>
             <%= link_to "delete",course_path(course), method: :delete,class:"btn btn-outline-danger",data: {confirm: "Are you sure ?"} %>
+            <% end %>
         </div>
          <div class="card-footer text-muted">
             <small>Created <%= time_ago_in_words(course.created_at) %> ago, 

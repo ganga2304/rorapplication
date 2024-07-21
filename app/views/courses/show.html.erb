@@ -11,8 +11,10 @@
             <p class="card-title"><b>CourseName:</b><%=@course.name %></p>
             <p class="card-text"><b>CourseDescription:</b><%= @course.description %></p>
             <p class="card-text"><b>Courseprice:</b><%= @course.price %></p>
+            <% if logged_in? && @article.user == current_user %>
             <%= link_to "edit",edit_course_path(@course),class:"btn btn-outline-success" %>
             <%= link_to "delete",course_path(@course), method: :delete,class:"btn btn-outline-danger",data: {confirm: "Are you sure ?"}%>
+            <% end %>
         </div>
     </div>
     </div>

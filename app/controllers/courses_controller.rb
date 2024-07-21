@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
     end
     def create
         @course = Course.new(course_param)
-        @course.user = User.first
+        @course.user = current_user
         if @course.save
             flash[:notice] = "Course was created successfully."
             redirect_to course_path(@course)
