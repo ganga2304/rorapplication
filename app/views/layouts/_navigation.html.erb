@@ -22,7 +22,9 @@
               <%= link_to "users", users_path, class:"dropdown-item"%>
               <%= link_to "courses", courses_path, class:"dropdown-item"%>
               <%= link_to "Create new user",signup_path, class:"dropdown-item"%>
+              <% if logged_in? %>
               <%= link_to "Create new course",new_course_path, class:"dropdown-item"%>
+              <% end %>
             </ul>
           </li>
           <% if logged_in? %>

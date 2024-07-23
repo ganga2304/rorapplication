@@ -1,5 +1,7 @@
+
 <h1 class="text-center mt-4">Displaying all the courses</h1>
-<% @courses.each do |course| %>
+<%= will_paginate @courses, class: 'pagination justify-content-center' %>
+ <% @courses.each do |course| %>
 <div class="container">
     <div class="card text-center mt-5">
         <div class="card-header">
@@ -11,7 +13,7 @@
             <h5 class="card-title"><b>Course:</b><%=  link_to course.name,course_path(course),class: "text-success" %></h5>
             <p class="card-text"><b>About:</b><%= course.description %></p>
             <p class="card-text"><b>Cost:</b><%= course.price %></p>
-            <%= link_to "view",course_path(course), class:"btn btn-outline-info" %>
+            
             <% if logged_in? && course.user == current_user %>
             <%= link_to "edit",edit_course_path(course),class:"btn btn-outline-success" %>
             <%= link_to "delete",course_path(course), method: :delete,class:"btn btn-outline-danger",data: {confirm: "Are you sure ?"} %>
@@ -24,3 +26,4 @@
     </div>
 <% end %>
 </div>
+<%= will_paginate @courses, class: 'pagination justify-content-center' %>

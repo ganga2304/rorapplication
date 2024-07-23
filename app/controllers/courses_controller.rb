@@ -1,7 +1,9 @@
 class CoursesController < ApplicationController
     before_action :set_course, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
     def index
-        @courses = Course.all
+        @courses =Course.paginate(page: params[:page], per_page: 3)
     end
     def show
     end
@@ -43,4 +45,11 @@ class CoursesController < ApplicationController
     def course_param
         params.require(:course).permit(:name, :description,:price)
     end
+    def require_same_user
+          if current_user != @course.user
+          flash[:alert] = "You can only edit or delete your own article"
+          redirect_to @course
+    end
+    end
+    
 end
