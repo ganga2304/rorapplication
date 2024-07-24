@@ -10,7 +10,7 @@
             <p class="card-text"><b>username:</b> <%= user.username %></p>
             <p class="card-text"><b>email:</b> <%= user.email %></p>
             <%= link_to "view", user_path(user), class:"btn btn-outline-info" %>
-            <% if logged_in? && user == current_user %>
+            <% if logged_in? && (user == current_user || current_user.admin?)%>
             <%= link_to "edit", edit_user_path(user), class:"btn btn-outline-success" %>
             <%= link_to "delete", user_path(user), method: :delete, class:"btn btn-outline-danger", data: {confirm: "Are you sure?"} %>
             <% end %>

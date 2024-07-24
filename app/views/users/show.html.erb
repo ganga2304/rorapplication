@@ -8,7 +8,7 @@
             <div class="card-body">
                 <p class="card-title"><b>Username:</b> <%= @user.username %></p>
                 <p class="card-text"><b>Email:</b> <%= @user.email %></p>
-                <% if logged_in? && @user == current_user %>
+                <% if logged_in? && (@user == current_user ||current_user.admin?)%>
                     <%= link_to "Edit", edit_user_path(@user), class: "btn btn-outline-success" %>
                     <%= link_to "Delete", user_path(@user), method: :delete, class: "btn btn-outline-danger", data: {confirm: "Are you sure?"} %>
                 <% end %>

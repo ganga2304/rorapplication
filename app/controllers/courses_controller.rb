@@ -46,7 +46,7 @@ class CoursesController < ApplicationController
         params.require(:course).permit(:name, :description,:price)
     end
     def require_same_user
-          if current_user != @course.user
+          if current_user != @course.user && !current_user.admin?
           flash[:alert] = "You can only edit or delete your own article"
           redirect_to @course
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_21_104628) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_24_172810) do
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_21_104628) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
 end

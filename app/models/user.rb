@@ -15,4 +15,8 @@ class User < ApplicationRecord
 
   # Secure password
   has_secure_password
+
+  def admin?
+    admin
+  end
 end
