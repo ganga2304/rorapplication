@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # Constants
-  has_many :courses
+  has_many :courses, dependent: :destroy
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   # Callbacks

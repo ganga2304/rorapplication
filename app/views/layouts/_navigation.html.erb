@@ -24,6 +24,7 @@
               <%= link_to "Create new user",signup_path, class:"dropdown-item"%>
               <% if logged_in? %>
               <%= link_to "Create new course",new_course_path, class:"dropdown-item"%>
+              <%= link_to "Delete User",users_path(current_user),class:"dropdown-item text-danger",method: :delete, data: {confirm: "Are you sure? "} %>
               <% end %>
             </ul>
           </li>
